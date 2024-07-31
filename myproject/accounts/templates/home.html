@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+<div class="container">
+    <h1>home</h1>
+    {% if user.is_authenticated %}
+        <h4>welcome, {{ user.username }} successful login</h4>
+        <a href="{% url 'logout' %}">logout</a>
+    {% else %}
+    <a href="{% url 'login' %}">login</a>
+    <a href="{% url 'signup' %}">signup</a>
+</div>
+    {% endif %}
+
+    
+</body>
+</html>
